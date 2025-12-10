@@ -24,10 +24,11 @@ Branches in this repo (with details):
     9895b63 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T22:56:57Z | Auto-update branch-info.txt
     3c4cc41 | Author: Faisal11111111111 <231816212+Faisal11111111111@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-12-10T17:56:47-05:00 | Initial commit
 - main
-  SHA: 62f7f300d7e254eed313446d57d6e56c187ca924
-  Commits: 4
+  SHA: d27c2494896d1370c60a2e57ec50e9805d116506
+  Commits: 7
   Recent commits:
+    d27c249 | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-10T23:23:17Z | Merge branch 'lab7'
+    8f13384 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T23:23:10Z | Auto-update branch-info.txt
+    7abd112 | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-10T23:23:00Z | Lab 7: Added mock tests, encryption coverage, logger debug check
     62f7f30 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T22:57:45Z | Auto-update branch-info.txt
     8c4f5ed | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T22:57:37Z | Auto-update branch-info.txt
-    9895b63 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T22:56:57Z | Auto-update branch-info.txt
-    3c4cc41 | Author: Faisal11111111111 <231816212+Faisal11111111111@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-12-10T17:56:47-05:00 | Initial commit
