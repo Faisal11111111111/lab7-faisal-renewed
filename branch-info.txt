@@ -1,29 +1,7 @@
 Branches in this repo (with details):
 
-- dependabot/docker/presidio-anonymizer/python-3.14-windowsservercore
-  SHA: 3f6ce1a28625c952590d65f4efe8982bde8f5cc9
-  Commits: 10
-  Recent commits:
-    3f6ce1a | Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-11-01T05:21:09Z | Bump python in /presidio-anonymizer
-    8f58608 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-10-02T15:41:48Z | Auto-update branch-info.txt
-    04c382c | Author: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Committer: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Date: 2025-10-02T15:41:35Z | prep for task 4
-    a26a738 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-10-02T15:33:27Z | Auto-update branch-info.txt
-    0bbe8c0 | Author: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Committer: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Date: 2025-10-02T15:31:13Z | prep for task1
-- dependabot/github_actions/actions/checkout-6
-  SHA: 6363aa3658539c9bc7da7d79381e746f998bcfa1
-  Commits: 11
-  Recent commits:
-    6363aa3 | Author: dependabot[bot] <49699333+dependabot[bot]@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-11-24T05:27:50Z | Bump actions/checkout from 3 to 6
-    ab7957b | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-11-01T05:21:17Z | Auto-update branch-info.txt
-    8f58608 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-10-02T15:41:48Z | Auto-update branch-info.txt
-    04c382c | Author: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Committer: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Date: 2025-10-02T15:41:35Z | prep for task 4
-    a26a738 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-10-02T15:33:27Z | Auto-update branch-info.txt
 - main
-  SHA: ab7957bdfb39ed6aaf7a5328efafeb8ede45a47c
-  Commits: 10
+  SHA: 3c4cc418198849373c5649e36ecc502fbeffa820
+  Commits: 1
   Recent commits:
-    ab7957b | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-11-01T05:21:17Z | Auto-update branch-info.txt
-    8f58608 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-10-02T15:41:48Z | Auto-update branch-info.txt
-    04c382c | Author: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Committer: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Date: 2025-10-02T15:41:35Z | prep for task 4
-    a26a738 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-10-02T15:33:27Z | Auto-update branch-info.txt
-    0bbe8c0 | Author: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Committer: Test Student <144061513+teststudentcosc381@users.noreply.github.com> | Date: 2025-10-02T15:31:13Z | prep for task1
+    3c4cc41 | Author: Faisal11111111111 <231816212+Faisal11111111111@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-12-10T17:56:47-05:00 | Initial commit
