@@ -24,11 +24,11 @@ Branches in this repo (with details):
     9895b63 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T22:56:57Z | Auto-update branch-info.txt
     3c4cc41 | Author: Faisal11111111111 <231816212+Faisal11111111111@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-12-10T17:56:47-05:00 | Initial commit
 - main
-  SHA: dabe79d9a6cfa3bed0e3899a129368898b760bd4
-  Commits: 11
+  SHA: 7c148be53c4bb85124c25eae52855c80552ac500
+  Commits: 13
   Recent commits:
+    7c148be | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T01:12:52Z | Final Lab 7 fixes: encrypt tests, coverage, run.sh passing 15/15
+    593f2d0 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-11T01:09:37Z | Auto-update branch-info.txt
     dabe79d | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T01:09:19Z | Fix run.sh and tests, ensure full CodeGrade pass
     454e8e3 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-11T00:48:31Z | Auto-update branch-info.txt
     269834f | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T00:47:55Z | Fix test_logger for CodeGrade scoring
-    8ffaf92 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T23:23:37Z | Auto-update branch-info.txt
-    d27c249 | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-10T23:23:17Z | Merge branch 'lab7'
