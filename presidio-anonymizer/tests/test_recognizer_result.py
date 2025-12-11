@@ -285,9 +285,6 @@ def test_given_negative_start_or_endpoint_then_we_fail(start, end):
         create_recognizer_result("entity", 0, start, end)
 
 
-# -------------------------------------------------------------
-# FIXED LOGGER TEST — THIS IS THE ONLY SECTION CHANGED
-# -------------------------------------------------------------
 
 def test_logger(mocker):
     # Patch the class-level logger used inside RecognizerResult

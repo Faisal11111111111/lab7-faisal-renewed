@@ -1,5 +1,4 @@
 from unittest import mock
-
 import pytest
 
 from presidio_anonymizer.operators import Encrypt, AESCipher, OperatorType
@@ -48,12 +47,16 @@ def test_given_verifying_an_invalid_length_key_then_ipe_raised():
         Encrypt().validate(params={"key": "key"})
 
 
-# CORRECT MOCK FOR YOUR VERSION — is_valid_key_size is what validate() calls
+
 @mock.patch(
-    "presidio_anonymizer.operators.aes_cipher.AESCipher.is_valid_key_size",
-    return_value=False,
+    "presidio_anonymizer.operators.aes_cipher.AESCipher.is_valid_key_size"
 )
-def test_given_verifying_an_invalid_length_bytes_key_then_ipe_raised(_):
+def test_given_verifying_an_invalid_length_bytes_key_then_ipe_raised(
+    mock_is_valid_key_size,
+):
+    # force validation to fail
+    mock_is_valid_key_size.return_value = False
+
     with pytest.raises(
         InvalidParamError,
         match="Invalid input, key must be of length 128, 192 or 256 bits",
@@ -69,6 +72,7 @@ def test_operator_name():
 def test_operator_type():
     op = Encrypt()
     assert op.operator_type() == OperatorType.Anonymize
+
 
 @pytest.mark.parametrize(
     "key",
