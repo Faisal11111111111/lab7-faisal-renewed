@@ -1,0 +1,142 @@
+.........FF...                                                           [100%]
+=================================== FAILURES ===================================
+____________________ test_valid_keys[192bitslengthkey!!!!] _____________________
+
+key = '192bitslengthkey!!!!'
+
+    @pytest.mark.parametrize(
+        "key",
+        [
+            "128bitslengthkey",                    # string 128-bit
+            "192bitslengthkey!!!!",                # string 192-bit
+            "256bitslengthkey!!!!!!!!!!!!",        # string 256-bit
+    
+            b"1111111111111111",                   # bytes 128-bit
+            b"111111111111111111111111",           # bytes 192-bit
+            b"11111111111111111111111111111111",   # bytes 256-bit
+        ]
+    )
+    def test_valid_keys(key):
+        op = Encrypt()
+    
+        # REQUIRED FOR CODEGRADE: test body MUST call validate()
+>       op.validate(params={"key": key})
+
+tests/operators/test_encrypt.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <presidio_anonymizer.operators.encrypt.Encrypt object at 0x75deb964eed0>
+params = {'key': '192bitslengthkey!!!!'}
+
+    def validate(self, params: Dict = None) -> None:
+        """
+        Validate Encrypt parameters.
+    
+        :param params:
+            * *key* The key supplied by the user for the encryption.
+                    Should be a string of 128, 192 or 256 bits length.
+        :raises InvalidParamException: in case on an invalid parameter.
+        """
+        key = params.get(self.KEY)
+        if isinstance(key, str):
+            validate_parameter(key, self.KEY, str)
+            if not AESCipher.is_valid_key_size(key.encode("utf8")):
+>               raise InvalidParamError(
+                    f"Invalid input, {self.KEY} must be of length 128, 192 or 256 bits"
+                )
+E               presidio_anonymizer.entities.invalid_exception.InvalidParamError: Invalid input, key must be of length 128, 192 or 256 bits
+
+presidio_anonymizer/operators/encrypt.py:42: InvalidParamError
+________________ test_valid_keys[256bitslengthkey!!!!!!!!!!!!] _________________
+
+key = '256bitslengthkey!!!!!!!!!!!!'
+
+    @pytest.mark.parametrize(
+        "key",
+        [
+            "128bitslengthkey",                    # string 128-bit
+            "192bitslengthkey!!!!",                # string 192-bit
+            "256bitslengthkey!!!!!!!!!!!!",        # string 256-bit
+    
+            b"1111111111111111",                   # bytes 128-bit
+            b"111111111111111111111111",           # bytes 192-bit
+            b"11111111111111111111111111111111",   # bytes 256-bit
+        ]
+    )
+    def test_valid_keys(key):
+        op = Encrypt()
+    
+        # REQUIRED FOR CODEGRADE: test body MUST call validate()
+>       op.validate(params={"key": key})
+
+tests/operators/test_encrypt.py:95: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <presidio_anonymizer.operators.encrypt.Encrypt object at 0x75deb964e5d0>
+params = {'key': '256bitslengthkey!!!!!!!!!!!!'}
+
+    def validate(self, params: Dict = None) -> None:
+        """
+        Validate Encrypt parameters.
+    
+        :param params:
+            * *key* The key supplied by the user for the encryption.
+                    Should be a string of 128, 192 or 256 bits length.
+        :raises InvalidParamException: in case on an invalid parameter.
+        """
+        key = params.get(self.KEY)
+        if isinstance(key, str):
+            validate_parameter(key, self.KEY, str)
+            if not AESCipher.is_valid_key_size(key.encode("utf8")):
+>               raise InvalidParamError(
+                    f"Invalid input, {self.KEY} must be of length 128, 192 or 256 bits"
+                )
+E               presidio_anonymizer.entities.invalid_exception.InvalidParamError: Invalid input, key must be of length 128, 192 or 256 bits
+
+presidio_anonymizer/operators/encrypt.py:42: InvalidParamError
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.12.3-final-0 ________________
+
+Name                                                            Stmts   Miss  Cover
+-----------------------------------------------------------------------------------
+presidio_anonymizer/__init__.py                                     7      0   100%
+presidio_anonymizer/anonymizer_engine.py                           95     74    22%
+presidio_anonymizer/batch_anonymizer_engine.py                     31     23    26%
+presidio_anonymizer/core/__init__.py                                3      0   100%
+presidio_anonymizer/core/engine_base.py                            44     32    27%
+presidio_anonymizer/core/text_replace_builder.py                   23     16    30%
+presidio_anonymizer/deanonymize_engine.py                          18      7    61%
+presidio_anonymizer/entities/__init__.py                            9      0   100%
+presidio_anonymizer/entities/conflict_resolution_strategy.py        4      0   100%
+presidio_anonymizer/entities/engine/__init__.py                     4      0   100%
+presidio_anonymizer/entities/engine/dict_recognizer_result.py       8      0   100%
+presidio_anonymizer/entities/engine/operator_config.py             24     13    46%
+presidio_anonymizer/entities/engine/pii_entity.py                  27     16    41%
+presidio_anonymizer/entities/engine/recognizer_result.py           42     25    40%
+presidio_anonymizer/entities/engine/result/__init__.py              3      0   100%
+presidio_anonymizer/entities/engine/result/engine_result.py        25     14    44%
+presidio_anonymizer/entities/engine/result/operator_result.py      23     13    43%
+presidio_anonymizer/entities/invalid_exception.py                   4      0   100%
+presidio_anonymizer/operators/__init__.py                          21      3    86%
+presidio_anonymizer/operators/aes_cipher.py                        28     16    43%
+presidio_anonymizer/operators/ahds_surrogate.py                   101     77    24%
+presidio_anonymizer/operators/custom.py                            18      9    50%
+presidio_anonymizer/operators/deanonymize_keep.py                   7      2    71%
+presidio_anonymizer/operators/decrypt.py                           18      8    56%
+presidio_anonymizer/operators/encrypt.py                           26      0   100%
+presidio_anonymizer/operators/hash.py                              21      8    62%
+presidio_anonymizer/operators/keep.py                              13      4    69%
+presidio_anonymizer/operators/mask.py                              33     17    48%
+presidio_anonymizer/operators/operator.py                          20      4    80%
+presidio_anonymizer/operators/operators_factory.py                 56     32    43%
+presidio_anonymizer/operators/redact.py                            11      4    64%
+presidio_anonymizer/operators/replace.py                           17      8    53%
+presidio_anonymizer/services/__init__.py                            0      0   100%
+presidio_anonymizer/services/app_entities_convertor.py             20     20     0%
+presidio_anonymizer/services/validators.py                         26     16    38%
+-----------------------------------------------------------------------------------
+TOTAL                                                             830    461    44%
+=========================== short test summary info ============================
+FAILED tests/operators/test_encrypt.py::test_valid_keys[192bitslengthkey!!!!]
+FAILED tests/operators/test_encrypt.py::test_valid_keys[256bitslengthkey!!!!!!!!!!!!]
+2 failed, 12 passed in 0.25s
