@@ -24,11 +24,11 @@ Branches in this repo (with details):
     9895b63 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-10T22:56:57Z | Auto-update branch-info.txt
     3c4cc41 | Author: Faisal11111111111 <231816212+Faisal11111111111@users.noreply.github.com> | Committer: GitHub <noreply@github.com> | Date: 2025-12-10T17:56:47-05:00 | Initial commit
 - main
-  SHA: ea6e16a7223fb3be7eadad0ed33bd7b67ecba558
-  Commits: 15
+  SHA: 94e743cc430c9315a0beefc74133fc009d20e698
+  Commits: 17
   Recent commits:
+    94e743c | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T01:23:58Z | Fix: final corrections to run.sh grading script
+    730f730 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-11T01:19:13Z | Auto-update branch-info.txt
     ea6e16a | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T01:18:27Z | Fix run.sh script and test runner updates
     b9ba120 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-11T01:13:26Z | Auto-update branch-info.txt
     7c148be | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T01:12:52Z | Final Lab 7 fixes: encrypt tests, coverage, run.sh passing 15/15
-    593f2d0 | Author: GitHub Actions <actions@github.com> | Committer: GitHub Actions <actions@github.com> | Date: 2025-12-11T01:09:37Z | Auto-update branch-info.txt
-    dabe79d | Author: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Committer: Faisal Abusara <fabusara@emich.edu.noreply.github.com> | Date: 2025-12-11T01:09:19Z | Fix run.sh and tests, ensure full CodeGrade pass
