@@ -1,72 +1,51 @@
 #!/bin/bash
+cd presidio-anonymizer
+source /home/codegrade/project/.venv/bin/activate 2>/dev/null
 
-# Always run from presidio-anonymizer directory
-cd "$(dirname "$0")"
-
-# Activate virtual environment
-if [ -f "/home/codegrade/project/.venv/bin/activate" ]; then
-  source /home/codegrade/project/.venv/bin/activate
-elif [ -f ".venv/bin/activate" ]; then
-  source .venv/bin/activate
-fi
-
-points=0
-max=15
-fb=""
+points=0; max=15; fb=""
 file=tests/operators/test_encrypt.py
 
-# Run pytest using Poetry
-poetry run pytest -q tests/operators/test_encrypt.py --cov=presidio_anonymizer --cov-report=term > out.txt 2>&1 || true
+# 4.1 function name
+grep -q "def test_valid_keys" "$file" && { fb+="✅ has test_valid_keys. "; points=$((points+3)); } || fb+="❌ missing test_valid_keys. "
 
-# Extract clean coverage
-cov=$(grep -E "operators/encrypt\.py" out.txt | grep -Eo '[0-9]+%' | tr -d '%' | tail -1)
-cov=${cov:-0}
-if ! [[ "$cov" =~ ^[0-9]+$ ]]; then cov=0; fi
-
-# 3.1 correct function name
-if grep -q "def test_given_verifying_an_invalid_length_bytes_key_then_ipe_raised" "$file"; then
-  fb+="✅ correct test name. "
-  points=$((points+3))
+# 4.2 decorator check — search up to 30 lines before the function
+start_line=$(grep -n "def test_valid_keys" "$file" | cut -d: -f1 | head -n1)
+if [ -n "$start_line" ]; then
+  if awk -v n="$start_line" 'NR>=n-30 && NR<n {print}' "$file" | grep -q "@pytest.mark.parametrize"; then
+    fb+="✅ parametrize above function. "; points=$((points+3));
+  else
+    fb+="❌ parametrize not found above. "
+  fi
 else
-  fb+="❌ incorrect test name. "
+  fb+="⚠️ could not locate function line for decorator check. "
 fi
 
-# 3.2 correct patch target
-if grep -q "AESCipher.is_valid_key_size" "$file"; then
-  fb+="✅ correct patch target. "
-  points=$((points+3))
+# 4.3 count at least six items inside parametrize list
+list_count=$(awk '/@pytest.mark.parametrize/{flag=1;next}/def test_valid_keys/{flag=0}flag' "$file" | grep -cE '["'\'']|b['\'']')
+if [ "$list_count" -ge 6 ]; then
+  fb+="✅ six key cases found. "; points=$((points+3));
 else
-  fb+="❌ incorrect patch target. "
+  fb+="❌ fewer than six key cases. "
 fi
 
-# 3.3 renamed mock variable
-if grep -q "mock_is_valid_key_size" "$file"; then
-  fb+="✅ mock variable renamed correctly. "
-  points=$((points+3))
+# 4.4 verify includes both string and bytes keys
+grep -Eq '["'\'']a{16}' "$file" && s_ok=1 || s_ok=0
+grep -Eq "b'a{16}'" "$file" && b_ok=1 || b_ok=0
+if [ $s_ok -eq 1 ] && [ $b_ok -eq 1 ]; then
+  fb+="✅ includes both string and bytes keys. "; points=$((points+3));
 else
-  fb+="❌ mock variable not renamed. "
+  fb+="❌ missing string or bytes key type. "
 fi
 
-# 3.4 return value set
-if grep -q "mock_is_valid_key_size.return_value" "$file"; then
-  fb+="✅ mock return_value set. "
+# 4.5 validate() call in test body — accept Encrypt().validate OR op.validate
+if grep -A5 "def test_valid_keys" "$file" | grep -Eq "Encrypt\(\)\.validate|\.validate"; then
+  fb+="✅ calls validate() in test body. "
   points=$((points+3))
 else
-  fb+="❌ missing return_value. "
+  fb+="❌ missing validate() call. "
 fi
 
-# 3.5 coverage check
-if [ "$cov" -ge 100 ]; then
-  fb+="✅ 100% coverage. "
-  points=$((points+3))
-else
-  fb+="❌ coverage <100% ($cov%). "
-fi
-
-echo "Score: $points/$max"
-echo "Feedback: $fb"
-
-# Only output to FD 3 if running in CodeGrade (fixes Bad FD error locally)
+# Output for CodeGrade only if FD 3 exists
 if [ -e /proc/$$/fd/3 ]; then
   echo "{ \"tag\": \"points\", \"points\": \"$points/$max\" }" >&3
 fi
