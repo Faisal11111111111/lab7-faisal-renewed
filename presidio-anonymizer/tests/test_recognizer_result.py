@@ -284,12 +284,44 @@ def test_given_negative_start_or_endpoint_then_we_fail(start, end):
     ):
         create_recognizer_result("entity", 0, start, end)
 
-from unittest import mock
-@mock.patch.object(RecognizerResult, "logger")
-def test_logger(mock_logger):
-    # replace the following line of `pass` with your test implementation
-    pass
 
+# -------------------------------------------------------------
+# FIXED LOGGER TEST — THIS IS THE ONLY SECTION CHANGED
+# -------------------------------------------------------------
+
+def test_logger(mocker):
+    # Patch the class-level logger used inside RecognizerResult
+    mock_logger = mocker.patch.object(RecognizerResult, "logger")
+
+    entity_type = "PERSON"
+    start = 5
+    end = 10
+    score = 0.99
+
+    # Trigger logging
+    create_recognizer_result(
+        entity_type=entity_type,
+        score=score,
+        start=start,
+        end=end,
+    )
+
+    # 1️⃣ logger.info must be called
+    mock_logger.info.assert_called()
+
+    # 2️⃣ retrieve the actual log message
+    log_msg = mock_logger.info.call_args[0][0]
+
+    # 3️⃣ verify required keywords appear
+    assert entity_type in log_msg
+    assert str(start) in log_msg
+    assert str(end) in log_msg
+    assert f"{score:.2f}" in log_msg
+
+
+# -------------------------------------------------------------
+# Helper function
+# -------------------------------------------------------------
 def create_recognizer_result(entity_type: str, score: float, start: int, end: int):
     data = {"entity_type": entity_type, "score": score, "start": start, "end": end}
     return RecognizerResult.from_json(data)
